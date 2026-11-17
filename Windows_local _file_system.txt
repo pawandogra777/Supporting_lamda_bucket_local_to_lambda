@@ -1,0 +1,26 @@
+winget install Rclone.Rclone
+
+Close the current Anaconda Prompt / CMD completely.
+Open a new Anaconda Prompt.
+Run:
+rclone version
+
+rclone config
+
+notepad "%APPDATA%\rclone\rclone.conf"
+######################Paste
+[InPP]
+type = s3
+provider = Other
+env_auth = false
+access_key_id = YOUR_LAMBDA_ACCESS_KEY
+secret_access_key = YOUR_LAMBDA_SECRET_KEY
+region = us-east-2
+endpoint = files.us-east-2.lambda.com
+#####################
+
+rclone config show InPP
+rclone lsd InPP:
+########################################
+rclone lsd InPP:YOUR_BUCKET_UUID
+rclone lsd InPP:222de535-575e-4b0e-b06b-bff0350b09ee

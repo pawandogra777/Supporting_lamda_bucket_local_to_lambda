@@ -1,0 +1,88 @@
+#### for checking IP
+curl ifconfig.me
+ip addr
+
+#### for copy file in window shell
+while true
+do
+    rsync -avz --progress /home/pawan/images/ username@<lambda_ip>:/lambda/nfs/NDS1/EOB/EOB_1/images/
+    sleep 10
+done
+
+example:
+rsync -avz --progress \
+/home/pawan/images/ \
+ubuntu@192.222.57.211:/lambda/nfs/NDS1/EOB/EOB_1/images/
+
+
+
+#### for  new ssh k key in window
+cmd prompt mai
+ssh-keygen -t ed25519 -C "pawan-lambda"
+
+jab puche:
+Enter file in which to save the key:
+
+ ssh key 
+
+C:\Users\pgupta>ssh-keygen -t ed25519 -C "pawan-lambda"
+Generating public/private ed25519 key pair.
+Enter file in which to save the key (C:\Users\pgupta/.ssh/id_ed25519):
+Created directory 'C:\\Users\\pgupta/.ssh'.
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in C:\Users\pgupta/.ssh/id_ed25519
+Your public key has been saved in C:\Users\pgupta/.ssh/id_ed25519.pub
+The key fingerprint is:
+SHA256:WoDd+7UuD/cBLgfhZc3QT4gJKo0EttfdD0hALO/IuFE pawan-lambda
+The key's randomart image is:
++--[ED25519 256]--+
+|    o..oo.o..+ . |
+|   . =.=.+ oo+o .|
+|    o *o= + = oo |
+|     .Eo.o + o  .|
+|     + oS o o .  |
+|    o oo.. + o   |
+|     o.   + = .  |
+|    .     .* . . |
+|           oo .  |
++----[SHA256]-----+
+
+
+#### for ssh key 
+C:\Users\pgupta>type %USERPROFILE%\.ssh\id_ed25519.pub
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIjs0V9OSwQ8r4vZdhcyrNj9gmucSCCokBsE5Tog2JQJ pawan-lambda
+
+
+### for ping
+ping 192.222.50.157
+
+
+
+#### for testing
+Test-NetConnection 209.20.159.220 -Port 22
+
+#####################for copy paste locla to lambda#################
+scp -r -i "C:\Users\pgupta\Desktop\New folder (8)\eob1.pem" "C:\Users\pgupta\Desktop\99" ubuntu@209.20.156.79:/lambda/nfs/NDS2H100/
+
+
+
+
+######Provide private key location while SSH
+ssh -i "C:\Users\pgupta\Desktop\Key\eob1.pem" ubuntu@209.20.159.220
+
+#####################for copy paste locla to lambda#################
+scp -i "C:\Users\pgupta\Desktop\Key\eob1.pem" -r "C:\Users\pgupta\Desktop\try" ubuntu@209.20.156.79:/lambda/nfs/NDS2H100/
+
+
+
+#####################for copy paste locla to lambda multiple input and multiple output#################
+scp -i "C:\Users\pgupta\Desktop\New folder (8)\eob1.pem" -r "C:\Users\pgupta\Desktop\99" "C:\Users\pgupta\Desktop\try" "C:\Users\pgupta\Desktop\paw" ubuntu@209.20.156.79:/lambda/nfs/NDS2H100/
+
+
+#####################for copy paste locla to lambda lambda tpo local#################
+scp -i "C:\Users\pgupta\Desktop\New folder (8)\eob1.pem" -r ubuntu@209.20.156.79:/lambda/nfs/NDS2H100/99 "C:\Users\pgupta\Desktop\"
+
+
+####for lambda tolocal single excle file
+scp -i "C:\Users\pgupta\Desktop\Key\eob1.pem" ubuntu@209.20.156.72:NDS2H100/00_EM_INTEGRATED/ICD_MDM1/04_ALL_header_data/Untitled Folder/AHFL-HMV001969733_All_Header.xlsx "C:\Users\pgupta\Desktop\Key"

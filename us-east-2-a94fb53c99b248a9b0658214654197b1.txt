@@ -1,0 +1,13 @@
+AWS_ACCESS_KEY_ID=Q5D3S2ESQ6WV2B5MDR58
+AWS_SECRET_ACCESS_KEY=lsLEUYaZj1FNz2wbouDXzeX5qz3pef0AEj+7ZNkC
+AWS_REGION=us-east-2
+S3_ENDPOINT_URL="https://files.us-east-2.lambda.ai"
+
+
+rclone copy \
+  "Inp:222de535-575e-4b0e-b06b-bff0350b09ee/Dhananjay" \
+  ./Inpatient \
+  --ignore-checksum \
+  --exclude "**/.venv/**" \
+  --progress \
+  -vv

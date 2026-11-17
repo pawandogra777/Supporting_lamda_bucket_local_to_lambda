@@ -1,0 +1,70 @@
+#### first go to storage####
+###go to S3 Adapter keys
+###in ss3 adapter key genrate acces key pair and downlaod i t giv esecret key
+##And then type rclone config
+-----follow this step---------------------------
+Start the rclone configuration wizard:
+
+rclone config
+
+Type N and press Enter to start creating a new remote.
+
+Fill out the requested information:
+
+    Name: Provide a name for your remote.
+    Option storage: Select the option that begins with Amazon S3 Compliant Storage Providers.
+    Option provider: Select Any other S3 compatible provider (other).
+    Option env_auth: Choose Enter AWS credentials in the next step.
+    Option access_key_id: Enter the access key you generated earlier.
+    Option secret_access_key: Enter the secret key you generated earlier.
+    Option region: Enter the region in which your filesystem resides—for example, us-east-2.
+    Option endpoint: Enter the API endpoint you're using. This endpoint should match your filesystem's region. For example, if your filesystem is in us-east-2, your endpoint should be files.us-east-2.lambda.ai.
+    Option location_constraint: Use the default.
+    Option acl: Choose permissions that are appropriate for your use case.
+
+When prompted to Edit advanced config?, press Enter to move on to the next step. A summary of your configuration appears.
+Press Enter to keep your remote, and then type Q and press Enter to exit the wizard.
+
+##############nano ~/.config/rclone/rclone.conf
+force_path_style = true
+Provider = Otherq
+ctr+o enter ctr+x
+============= after thisNn
+you have to check list in bucket #########rclone ls <REMOTE>:<BUCKET-NAME>
+
+and list of directory
+##########rclone lsd paw:222de535-575e-4b0e-b06b-bff0350b09ee
+
+and after ypu have to copy and clone the folder from bucket to local
+rclone copy \
+  "paw:222de535-575e-4b0e-b06b-bff0350b09ee/EOB" \
+  ./05_InP \
+  --ignore-checksum \
+  --exclude "**/.venv/**" \
+  --progress \
+  -vv
+rclone copy KKREMOTE_H100:222de535-575e-4b0e-b06b-bff0350b09ee/00_EM_INTEGRATED ./Paw_inp \
+-P \
+--ignore-checksum \
+--retries 5 \
+--low-level-retries 20 \
+--transfers 4 \
+--checkers 8
+
+
+
+
+rclone lsd paw:222de535-575e-4b0e-b06b-bff0350b09ee
+
+and after ypu have to copy and clone the folder from bucket to local
+rclone copy \
+  "paw:222de535-575e-4b0e-b06b-bff0350b09ee/EOB/EOB_1/PECNet_V2" \
+  ./C:/Users/pgupta/Desktop/New folder (2)PECNet_V2 \
+  --ignore-checksum \
+  --exclude "**/.venv/**" \
+  --progress \
+  -vv
+
+
+
+rclone ls "paw:222de535-575e-4b0e-b06b-bff0350b09ee/EOB/EOB_1/PECNet_V2/EOBAIWORK" "C:\Users\pgupta\Desktop\New folder (3)" --include "*.py" --include "*.ipynb" --transfers 8 --checkers 16 --progress -vv
